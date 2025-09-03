@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Países</title>
+</head>
+<body>
+    <h1>Países</h1>
+    <ul>
+        {% for country in countries %}
+            <li>
+                <a href="{% url 'country_detail' country.cca2 %}">
+                    {{ country.nome }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

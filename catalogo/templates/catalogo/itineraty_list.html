@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Roteiros</title>
+</head>
+<body>
+    <h1>Roteiros</h1>
+    <ul>
+        {% for itinerary in itineraries %}
+            <li>
+                <a href="{% url 'itinerary_detail' itinerary.id %}">{{ itinerary.titulo }}</a>
+                - {{ itinerary.country.nome }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

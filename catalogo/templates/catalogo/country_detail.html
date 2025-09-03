@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes de {{ country.nome }}</title>
+</head>
+<body>
+    <a href="/countries/">&larr; Voltar para a lista</a>
+    <hr>
+
+    <h1>{{ country.nome }}</h1>
+    
+    <img src="{{ country.flag_url }}" alt="Bandeira de {{ country.nome }}" width="150">
+
+    <h2>Informações</h2>
+    <ul>
+        <li><strong>Capital:</strong> {{ country.capital }}</li>
+        <li><strong>Região:</strong> {{ country.regiao }}</li>
+        <li><strong>Sub-região:</strong> {{ country.subregiao }}</li>
+        <li><strong>População:</strong> {{ country.populacao }}</li>
+        <li><strong>Código:</strong> {{ country.cca2 }}</li>
+    </ul>
+
+    <h2>Roteiros Disponíveis</h2>
+
+    {% if itineraries %}
+        <ul>
+            {% for itinerary in itineraries %}
+                <li>
+                    <strong>{{ itinerary.titulo }}</strong>
+                    <p>{{ itinerary.descricao }}</p>
+                    <p>
+                        De {{ itinerary.data_inicio|date:"d/m/Y" }}
+                        até {{ itinerary.data_partida|date:"d/m/Y" }}
+                    </p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Ainda não há roteiros disponíveis para este destino.</p>
+    {% endif %}
+    
+</body>
+</html>
